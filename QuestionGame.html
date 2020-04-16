@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container" id="game">
+        <h2>Thank you for paying the Question Game!</h2>
+    </div>
+
+    <script type="text/javascript">
+
+        var wins = 0;
+        var loses = 0;
+        
+        var questions = [          
+            {
+                question: "There are 8 planets.",
+                answer: true,
+            },
+            {
+                question: "There are 5 days in a week.",
+                answer: false,
+            },
+            {
+                question: "There are 12 months is a year.",
+                answer: true,
+            }, 
+            {
+                question: "7 x 7 = 49",
+                answer: true,
+            },
+        ];
+
+        console.log(questions[0].question);
+
+        for (var i = 0; i < questions.length; i ++) {
+            var answers = prompt(questions[i].question);
+
+                if ((questions[i].answer === true) && (answers === "t")) {
+                    wins++
+                    alert("Your are correct!")
+                } else if ((questions[i].answer === false) && (answers === "f")) {
+                    wins++
+                    alert("You are correct!");
+                } else {
+                    loses++
+                    alert("You are not correct!")
+                };
+        };
+
+        var html =
+        "<h3>Here are your results!</h3>" +
+        "<p>Your total wins is " + wins + ".</p>" + 
+        "<p>Your total loses is " + loses + ".</p>"
+
+        document.querySelector("#game").innerHTML = html;
+        
+    </script>
+</body>
+
+</html>
